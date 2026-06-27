@@ -1,0 +1,18 @@
+$ bun run serve.ts
+ 7 | 
+ 8 | const DB_PATH = path.join(DATA_DIR, "studyforge.db");
+ 9 | const db = new Database(DB_PATH);
+10 | 
+11 | // Enable WAL mode for better concurrent access
+12 | db.run("PRAGMA journal_mode = WAL");
+        ^
+SQLiteError: attempt to write a readonly database
+      errno: 1544,
+ byteOffset: -1,
+       code: "SQLITE_READONLY_DIRECTORY"
+
+      at run (bun:sqlite:336:21)
+      at /home/team/shared/site/src/backend/db.ts:12:4
+
+Bun v1.3.14 (Linux x64)
+error: script "start" exited with code 1
